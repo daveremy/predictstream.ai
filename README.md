@@ -1,19 +1,15 @@
-# 🚀 AstroWind
+# 🚀 PredictStream.ai
 
-<img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/lighthouse-score.png" align="right"
-     alt="AstroWind Lighthouse Score" width="100" height="358">
+<img src="https://raw.githubusercontent.com/daveremy/predictstream.ai/main/public/favicon.png" align="right" alt="PredictStream.ai Logo" width="100" height="100">
 
-🌟 _Most *starred* & *forked* Astro theme in 2022, 2023 & 2024_. 🌟
+PredictStream.ai is an open-source platform that transforms raw, real-time event streams into actionable AI-driven insights and automated responses. This website serves as the documentation and community hub for the PredictStream project.
 
-**AstroWind** is a free and open-source template to make your website using **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
-
-- ✅ **Production-ready** scores in **PageSpeed Insights** reports.
-- ✅ Integration with **Tailwind CSS** supporting **Dark mode** and **_RTL_**.
-- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
-- ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
-- ✅ Generation of **project sitemap** based on your routes.
-- ✅ **Open Graph tags** for social media sharing.
-- ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
+- ✅ **Real-time Event Processing**: Process and analyze events as they happen
+- ✅ **AI-Powered Agents**: Modular AI agents for data cleaning, enrichment, and prediction
+- ✅ **Self-Improving System**: Feedback loops and operational telemetry for continuous improvement
+- ✅ **Industry-Agnostic**: Built to handle any domain with event-driven workflows
+- ✅ **Scalable Architecture**: Designed for high-velocity global data streams
+- ✅ **Open Source**: Built by the community, for the community
 
 <br>
 
@@ -50,33 +46,38 @@
 
 <br>
 
-## Demo
+## Live Demo
 
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
+📌 [https://predictstream.ai](https://predictstream.ai)
 
 <br>
 
-## 🔔 Upcoming: AstroWind 2.0 – We Need Your Vision!
+## 🔔 Getting Involved
 
-We're embarking on an exciting journey with **AstroWind 2.0**, and we want you to be a part of it! We're currently taking the first steps in developing this new version and your insights are invaluable. Join the discussion and share your feedback, ideas, and suggestions to help shape the future of **AstroWind**. Let's make **AstroWind 2.0** even better, together!
+PredictStream is an open-source project that welcomes contributions from the community. Whether you're a developer, data scientist, or simply interested in event stream processing, there are many ways to get involved:
 
-[Share Your Feedback in Our Discussion!](https://github.com/onwidget/astrowind/discussions/392)
+- **Contribute Code**: Help improve the core platform or build new AI agents
+- **Documentation**: Help improve our documentation and examples
+- **Community**: Join our discussions and help shape the project's future
+- **Examples**: Create and share new use cases and integrations
 
 <br>
 
 ## TL;DR
 
 ```shell
-npm create astro@latest -- --template onwidget/astrowind
+npm create astro@latest -- --template daveremy/predictstream.ai
 ```
 
 ## Getting started
 
-**AstroWind** tries to give you quick access to creating a website using [Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
+PredictStream.ai is built using [Astro 5.0](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/), providing a modern, performant web experience for our documentation and community hub.
 
-Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
-
-In this version the template supports all the options in the `output` configuration, `static`, `hybrid` and `server`, but the blog only works with `prerender = true`. We are working on the next version and aim to make it fully compatible with SSR.
+The site includes:
+- Comprehensive documentation
+- Real-time event stream examples
+- Community resources and discussions
+- Integration guides
 
 ### Project structure
 
@@ -129,11 +130,20 @@ Inside **AstroWind** template, you'll see the following folders and files:
 ├── package.json
 ├── astro.config.ts
 └── ...
-```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Frequently Asked Questions
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+> **What is PredictStream?**
+> 
+> PredictStream is an open-source platform that transforms raw, real-time event streams into actionable AI-driven insights and automated responses.
+> 
+> **How does it work?**
+> 
+> PredictStream uses modular AI agents to process, clean, enrich, and act on event streams in real-time, making it ideal for any domain with event-driven workflows.
+> 
+> **How can I contribute?**
+> 
+> We welcome contributions! Whether you're a developer, data scientist, or simply interested in event stream processing, there are many ways to get involved. Check our [Contributing](#contributing) section for more details.
 
 Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
 

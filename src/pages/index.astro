@@ -354,34 +354,34 @@ const metadata = {
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Will our people actually adopt the change?',
+        title: 'What is PredictStream?',
         description:
-          ' Absolutely &dash; but it takes more than just communication. We build real ownership by embedding change agents, tailoring engagement, and helping leaders model the change from the top down.',
+          'PredictStream is an open-source platform that transforms raw, real-time event streams (e.g., IoT sensors, transaction logs, user interactions) into actionable AI-driven insights and automated responses. It leverages modular AI agents to clean, enrich, predict, and act on events as they happen.',
       },
       {
-        title: 'How do we avoid dips in productivity and service delivery during the transition?',
+        title: 'How is PredictStream different from traditional data pipelines?',
         description:
-          'Change doesn’t have to mean chaos. With a phased roadmap, smart risk management, and real-time adjustments, we help you keep &dash; and possibly even boost &dash; productivity and service levels throughout the transition.',
+          "Unlike batch-processing systems, PredictStream: <ul><li><strong>Operates in real time</strong>, closing the loop from insight → action. </li><li><strong>Uses AI agents</strong> to handle messy, unstructured data (e.g., imputing missing values, inferring context).</li><li><strong>Supports self-improvement</strong> through feedback loops and operational telemetry.</li></ul>",
       },
       {
-        title: 'We’ve tried this before and it didn’t stick. Why will this be different?',
+        title: 'What industries can benefit from PredictStream?',
         description:
-          'That <i>“this too shall pass” </i>  &nbsp;feeling is real &dash; and we get it. We start by understanding your culture and readiness, anchor everything in measurable behavior change, and track real progress. Plus, we recommend staying engaged after launch to lock in the wins and prevent backsliding.',
+          "Any domain with event-driven workflows! Examples: <ul><li><strong>IT/DevOps:</strong> Auto-remediate system failures.</li><li><strong>E-Commerce:</strong> Real-time cart abandonment fixes.</li><li><strong>Healthcare:</strong> Automated patient reminders and scheduling.</li><li><strong>Industrial IoT:</strong> Proactive maintenance triggers.</li><li><strong>Financial Services:</strong> Freeze suspicious transactions in real time.</li><li>And many many more!</li></ul>",
       },
       {
-        title: 'How do we communicate this without causing fear or confusion?',
+        title: 'Do I need labeled data or predefined schemas to use PredictStream?',
         description:
-          'Good communication isn’t just about talking &dash; it’s about connecting. We help leaders deliver clear, empathetic messages that balance transparency with vision, and we make sure there’s space for two-way conversations along the way.',
+          'No! PredictStream’s <strong>zero-knowledge learning agents</strong> can infer structure and semantics from raw streams, making it ideal for unlabeled or heterogeneous data. Custom agents can also integrate existing rules.',
       },
       {
-        title: 'Do we even have the internal capacity to do this right?',
+        title: 'How does PredictStream ensure transparency and auditability?',
         description:
-          'You don’t have to do it alone. We bring the experience, the people, and the framework to lead change &dash; while empowering your internal teams so they’re stronger and more capable long after the project ends.',
+          "Every agent emits structured feedback, and all actions are logged as event streams themselves. This enables: <ul><li><strong>Real-Time monitoring:</strong> via dashboards.</li><li><strong>Auditability:</strong> Comprehensive logs for insights.</li><li><strong>Human-in-the-loop</strong> overrides where needed.</li></ul>",
       },
       {
-        title: 'How do we get started?',
+        title: 'Is PredictStream scalable for high-velocity global data streams?',
         description:
-          "Reach out and let's discuss it. There's a myriad of ways to get launched quickly and effectively.",
+          "Yes, but with caveats. The modular architecture supports horizontal scaling, and lightweight agents minimize latency. However, extreme-scale deployments (e.g., planetary IoT) may require custom optimizations - a focus of ongoing research.",
       }
     ]}
   />
@@ -403,7 +403,7 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Email Us',
+        text: 'Contact Us',
         href: '/contact',
         icon: 'tabler:mail',
       },
@@ -413,13 +413,13 @@ const metadata = {
       <span
         class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
       >
-        <Image src={logo} alt={SITE.name} width="200" alt={SITE.name} title={SITE.name} class="m-auto"/>
+        <Image src={logo} alt={SITE.name} width="400" alt={SITE.name} title={SITE.name} class="m-auto pb-5"/>
       </span>
+      Ready to Operationalize Event Streams?
     </Fragment>
 
     <Fragment slot="subtitle">
-      At Acertain Group, we turn strategy into action by working side-by-side with your team to build trust, overcome resistance, and deliver sustainable change.
-We can help. Just reach out.
+      Join the open-source community or deploy PredictStream today.
     </Fragment>
   </CallToAction> 
 </Layout>

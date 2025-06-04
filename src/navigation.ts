@@ -133,7 +133,7 @@ export const headerData = {
       href: SITE.site + '#GettingStarted',
     },
   ],
-  actions: [{ text: 'Contact Us  ', href: SITE.site + '/contact', icon: 'tabler:mail' }],
+  actions: [{ text: 'Contact Us  ', href: '/contact', icon: 'tabler:mail' }],
 };
 
 export const footerData = {
