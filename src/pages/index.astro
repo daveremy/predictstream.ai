@@ -1,0 +1,425 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+
+import FAQs from '~/components/widgets/FAQs.astro';
+// import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+// import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+// import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Image } from 'astro:assets';
+import { SITE } from 'astrowind:config';
+import logo from '/src/assets/images/predict-stream-horizontal-logo.png';
+import dominos from '/src/assets/images/dominos.jpg';
+
+const metadata = {
+  title: SITE.site.name,
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Read our Whitepaper',
+        href: '/predictstream_whitepaper.pdf',
+        target: '_blank',
+        icon: 'tabler:external-link',
+      },
+      {
+        id: 'secondary-cta',
+        variant: 'secondary',
+        text: 'Use cases',
+        href: '#use-cases',
+        icon: 'tabler:link',
+      }
+    ]}
+    backgroundImage='/src/assets/images/hero.jpg'
+  >
+    <Fragment slot="title">
+      <Image src={logo} alt={SITE.name} width="600" alt={SITE.name} title={SITE.name} class="m-auto"/>
+       </Fragment>
+
+    <Fragment slot="subtitle">
+      An open-source platform harnessing AI to turn noisy, heterogeneous event streams into real-time, context-aware actions.
+    </Fragment>
+  </Hero>
+
+  <!-- Features Widget *************** -->
+  <!-- 
+  <Features
+    id="features"
+    tagline="Features"
+    title="What you get with AstroWind"
+    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
+    items={[
+      {
+        title: 'Astro + Tailwind CSS Integration',
+        description:
+          '<ul><li>Understand your stakeholders &dash; and what they need to succeed</li><li>Define a clear, shared vision that anchors the change &dash; and ensure leaders are aligned behind it</li><li> Embed change management from the start &dash; and sustain it throughout</li></ul>',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Ready-to-use Components',
+        description:
+          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Best Practices',
+        description:
+          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'Excellent Page Speed',
+        description:
+          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Search Engine Optimization (SEO)',
+        description:
+          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Open to new ideas and contributions',
+        description:
+          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
+        icon: 'tabler:bulb',
+      },
+    ]}
+  /> -->
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    id="WhyPredictStream"
+    isReversed
+    tagline=""
+    title="Why Predict Stream?"
+    items={[
+      {
+        title: 'Semantic Event Processing',
+        description:
+          'Turn messy streams into structured, meaningful narratives.',
+      },
+      {
+        title: 'Real-Time Action',
+        description:
+          'Close the loop from insight to automated intervention.',
+      },
+      {
+        title: 'Modular AI Agents',
+        description:
+          "Pluggable pipelines for flexible, domain-specific solutions.",
+      },
+      {
+        title: 'Self-Improving System',
+        description:
+          "Feedback loops enable continuous learning.",
+      },
+    ]}
+    image={{
+      src: dominos,
+      alt: 'Dominos',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on an AI native foundation</h3>
+      PredictStream transforms noisy, real-world event streams into actionable AI-driven insights and automated responses — bridging the gap between raw data and intelligent action.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <!-- <Content
+    isAfterContent
+    id="OurServices"
+    title="Our Services"
+    items={[
+      {
+        title: 'Leadership Alignment & Strategy',
+        description: `We help leadership teams build a strong foundation for change through strategic planning sessions, development of guiding principles, and tailored coaching.`,
+      },
+      {
+        title: 'Stakeholder Engagement',
+        description:
+          'Our approach strengthens connections across the organization by identifying key stakeholders, executing targeted engagement strategies, and fostering trust through continuous feedback.',
+      },
+      {
+        title: 'Communication Planning & Execution',
+        description:
+          'We create and deliver clear, audience-specific communication strategies that drive understanding, alignment, and action throughout the change process.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1492366254240-43affaefc3e3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGVhZGVyc2hpcHxlbnwwfHwwfHx8Mg%3D%3D',
+      alt: 'Crew Image',
+    }}
+  >
+    <Fragment slot="content"
+      >Our services are designed to support both leadership and employees throughout the change journey&dash;ensuring
+      solutions are not only implemented, but embraced.</Fragment
+    >
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content> -->
+
+  <!-- Content Widget **************** -->
+
+  <!-- <Content
+    isReversed
+    isAfterContent
+    items={[
+      {
+        title: 'Employee Experience & Listening',
+        description:
+          'We amplify employee voices through surveys, focus groups, and interviews, turning insights into actionable plans that improve engagement and adoption.',
+      },
+      {
+        title: 'Organizational Design & Implementation',
+        description:
+          'We support organizational transitions by aligning structures and roles, planning workforce impacts, and ensuring integration with broader initiatives.',
+      },
+      {
+        title: 'Change Enablement for Projects & Systems',
+        description:
+          'We accelerate change adoption for new technologies and systems through tailored strategies, training programs, and readiness support to ensure smooth go-lives.',
+      },
+      {
+        title: 'And More!',
+        description: '',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHBhcnRuZXJzaGlwfGVufDB8fDB8fHwy',
+      alt: 'Point At Computer Image',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content> -->
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="HowPredictStreamWorks"
+    title="How PredictStream Works"
+    items={[
+      {
+        title: 'Event Sources',
+        description:
+          'Ingest events from any source - files, APIs, databases, message queues, etc.',
+        icon: 'tabler:chart-bubble',
+      },
+      {
+        title: 'Ingestion',
+        description:
+          'Incoming events are normalized, validated, and deduped.',
+        icon: 'tabler:transfer-in',
+      },
+      {
+        title: 'Enrichment',
+        description:
+          'Agents (e.g., LLM backed) enrich events with context, infer domains, extract entities, or perform summarization.',
+        icon: 'tabler:code-plus',
+      },
+      {
+        title: 'Prediction',
+        description:
+          "Prediction agents leverage LLM's or other models to forecast next events, classify anomalies, or generate recommendations.",
+        icon: 'tabler:ai',
+      },
+      {
+        title: 'Action',
+        description:
+          'Actions are triggered based on predictions or recommendations.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Feedback',
+        description:
+          'Agents learn from feedback to improve predictions and recommendations.',
+        icon: 'tabler:repeat',
+      }
+      
+      
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Steps image',
+    }}
+  />
+  <!-- Note Widget ******************* -->
+
+  <!-- <Note title="Philosophy:" description="Building trust. Driving momentum. Creating lasting change." /> -->
+  <!-- Features2 Widget ************** -->
+  
+  <Features2
+    id="use-cases"
+    title="What are some use cases?"
+    subtitle="Action-Oriented Applications"
+    items={[
+      {
+        title: 'IT/DevOps',
+        description: "Automated incident remediation.",
+        icon: 'flat-color-icons:engineering',
+      },
+      {
+        title: 'E-Commerce',
+        description:
+          "Real-time cart abandonment fixes.",
+        icon: 'flat-color-icons:statistics',
+      },
+      {
+        title: 'Healthcare',
+        description:
+          'Automated patient reminders and scheduling.',
+        icon: 'flat-color-icons:overtime',
+      },
+      {
+        title: 'Industrial IoT:',
+        description:
+          "Proactive maintenance triggers.",
+        icon: 'flat-color-icons:factory',
+      },
+      {
+        title: 'Fraud Detection',
+        description:
+          'Freeze suspicious transactions in real time.',
+        icon: 'flat-color-icons:disclaimer',
+      },
+      {
+        title: 'Personalized Learning Platforms',
+        description: 'Adapt lesson difficulty.',
+        icon: 'flat-color-icons:reading',
+      },
+      {
+        title: 'Supply Chain Resilience',
+        description: 'Reroute shipments or trigger alternate suppliers.',
+        icon: 'flat-color-icons:shipped',
+      },
+      {
+        title: 'Energy Grid Management',
+        description:
+          'Balance loads, predict failures, or activate backup power.',
+        icon: 'flat-color-icons:flash-on',
+      },
+      {
+        title: 'Predictive Customer Support',
+        description: "Route high-priority issues to agents, auto-suggest fixes, or proactively contact frustrated users.",
+        icon: 'flat-color-icons:voice-presentation',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <!-- <BlogLatestPosts
+    title="Find out more content in our Blog"
+    information={`The blog is used to display AstroWind documentation.
+                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
+                        Astro is a very interesting technology. Thanks.
+                `}
+  /> -->
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    id="FAQ"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Will our people actually adopt the change?',
+        description:
+          ' Absolutely &dash; but it takes more than just communication. We build real ownership by embedding change agents, tailoring engagement, and helping leaders model the change from the top down.',
+      },
+      {
+        title: 'How do we avoid dips in productivity and service delivery during the transition?',
+        description:
+          'Change doesn’t have to mean chaos. With a phased roadmap, smart risk management, and real-time adjustments, we help you keep &dash; and possibly even boost &dash; productivity and service levels throughout the transition.',
+      },
+      {
+        title: 'We’ve tried this before and it didn’t stick. Why will this be different?',
+        description:
+          'That <i>“this too shall pass” </i>  &nbsp;feeling is real &dash; and we get it. We start by understanding your culture and readiness, anchor everything in measurable behavior change, and track real progress. Plus, we recommend staying engaged after launch to lock in the wins and prevent backsliding.',
+      },
+      {
+        title: 'How do we communicate this without causing fear or confusion?',
+        description:
+          'Good communication isn’t just about talking &dash; it’s about connecting. We help leaders deliver clear, empathetic messages that balance transparency with vision, and we make sure there’s space for two-way conversations along the way.',
+      },
+      {
+        title: 'Do we even have the internal capacity to do this right?',
+        description:
+          'You don’t have to do it alone. We bring the experience, the people, and the framework to lead change &dash; while empowering your internal teams so they’re stronger and more capable long after the project ends.',
+      },
+      {
+        title: 'How do we get started?',
+        description:
+          "Reach out and let's discuss it. There's a myriad of ways to get launched quickly and effectively.",
+      }
+    ]}
+  />
+
+  <!-- Stats Widget ****************** -->
+  <!-- 
+  <Stats
+    stats={[
+      { title: 'Downloads', amount: '132K' },
+      { title: 'Stars', amount: '24.8K' },
+      { title: 'Forks', amount: '10.3K' },
+      { title: 'Users', amount: '48.4K' },
+    ]}
+  /> -->
+
+  <!-- CallToAction Widget *********** -->
+
+   <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email Us',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      <span
+        class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
+      >
+        <Image src={logo} alt={SITE.name} width="200" alt={SITE.name} title={SITE.name} class="m-auto"/>
+      </span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      At Acertain Group, we turn strategy into action by working side-by-side with your team to build trust, overcome resistance, and deliver sustainable change.
+We can help. Just reach out.
+    </Fragment>
+  </CallToAction> 
+</Layout>

@@ -1,0 +1,141 @@
+---
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+
+import type { Hero as Props } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+
+  content = await Astro.slots.render('content'),
+  actions = await Astro.slots.render('actions'),
+  image = await Astro.slots.render('image'),
+  
+  // New background image props
+  backgroundImage,
+  backgroundImageClass = '',
+  backgroundOverlay = true,
+  backgroundOverlayClass = 'bg-black/40',
+
+  id,
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+// Construct background image classes
+const bgImageClasses = backgroundImage 
+  ? `bg-cover bg-center bg-no-repeat ${backgroundImageClass}` 
+  : '';
+
+const backgroundStyle = backgroundImage 
+  ? `background-image: url('${backgroundImage}');` 
+  : '';
+---
+
+<section 
+  class={`relative md:-mt-[84px] not-prose min-h-screen flex items-center ${bgImageClasses}`}
+  style={backgroundStyle}
+  {...id ? { id } : {}}
+>
+  <!-- Background overlay for better text readability -->
+  {backgroundImage && backgroundOverlay && (
+    <div class={`absolute inset-0 ${backgroundOverlayClass}`} aria-hidden="true"></div>
+  )}
+  
+  <!-- Original background slot (preserved for backward compatibility) -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <slot name="bg">
+      {bg ? <Fragment set:html={bg} /> : null}
+    </slot>
+  </div>
+  
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 w-full">
+    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+    <div class="py-0 lg:py-12 md:py-20">
+      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+        {
+          tagline && (
+            <p
+              class={`text-base font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${
+                backgroundImage 
+                  ? 'text-white/90 dark:text-blue-200' 
+                  : 'text-secondary dark:text-blue-200'
+              }`}
+              set:html={tagline}
+            />
+          )
+        }
+        {
+          title && (
+            <h1
+              class={`text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${
+                backgroundImage 
+                  ? 'text-white dark:text-white' 
+                  : 'dark:text-gray-200'
+              }`}
+              set:html={title}
+            />
+          )
+        }
+        <div class="max-w-3xl mx-auto">
+          {
+            subtitle && (
+              <p
+                class={`text-xl mb-6 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade ${
+                  backgroundImage 
+                    ? 'text-white/90 dark:text-white/90' 
+                    : 'text-muted dark:text-slate-300'
+                }`}
+                set:html={subtitle}
+              />
+            )
+          }
+          {
+            actions && (
+              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+                {Array.isArray(actions) ? (
+                  actions.map((action) => (
+                    <div class="flex w-full sm:w-auto">
+                      <Button {...(action || {})} class="w-full sm:mb-0" />
+                    </div>
+                  ))
+                ) : (
+                  <Fragment set:html={actions} />
+                )}
+              </div>
+            )
+          }
+        </div>
+        {content && <Fragment set:html={content} />}
+      </div>
+      
+      {/* Only show the image section if there's no background image */}
+      {!backgroundImage && (
+        <div
+          class="intersect-once intercept-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+        >
+          {
+            image && (
+              <div class="relative m-auto max-w-5xl">
+                {typeof image === 'string' ? (
+                  <Fragment set:html={image} />
+                ) : (
+                  <Image
+                    class="mx-auto rounded-md w-full"
+                    widths={[400, 768, 1024, 2040]}
+                    sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                    loading="eager"
+                    width={1024}
+                    height={576}
+                    {...image}
+                  />
+                )}
+              </div>
+            )
+          }
+        </div>
+      )}
+    </div>
+  </div>
+</section>

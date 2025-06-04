@@ -1,0 +1,46 @@
+---
+import authors from '~/content/authors/authors.json';
+
+import { getPermalink } from '~/utils/permalinks';
+
+import Image from '~/components/common/Image.astro';
+
+export interface Props {
+  author?: string;
+  detailed?: boolean;
+}
+
+const { author = (await Astro.slots.render('author')) || 'default', detailed = await Astro.slots.render('detailed') } =
+  Astro.props;
+
+const definedAuthor = authors[author] || authors['default'];
+const image = { src: definedAuthor.image, alt: definedAuthor.name };
+const fontSize = detailed ? 'text-lg md:text-xl' : 'text-lg md:text-lg';
+const detailedClasses = detailed ? '' : 'md:max-w-[4vw]';
+---
+
+<section class="max-w-md mx-auto rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+  <div class="md:flex items-center">
+    <div class:list={[detailedClasses]}>
+      {
+        image && (
+          <Image
+            class="w-full object-cover rounded-full p-8 md:p-0 md:max-w-[4vw]"
+            loading="eager"
+            decoding="async"
+            sizes="50vw"
+            {...image}
+          />
+        )
+      }
+    </div>
+    <div class="p-4">
+      <h3 class:list={['text-muted', fontSize]}>
+        <a class="capitalize hover:underline" href={getPermalink(author, 'author')}>
+          {definedAuthor.name}
+        </a>
+      </h3>
+      {detailed && <p>{definedAuthor.bio}</p>}
+    </div>
+  </div>
+</section>

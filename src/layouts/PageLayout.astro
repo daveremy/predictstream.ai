@@ -1,0 +1,39 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+// import Footer from '~/components/widgets/Footer.astro';
+// import Announcement from '~/components/widgets/Announcement.astro';
+
+import { headerData } from '~/navigation';
+//import { headerData, footerData } from '~/navigation';
+
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+---
+
+<Layout metadata={metadata}>
+  <slot name="announcement">
+    <!-- <Announcement /> -->
+  </slot>
+  <slot name="header">
+    <Header {...headerData} isSticky showRssFeed={false} showToggleTheme={true} />
+  </slot>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer">
+    <!-- <Footer {...footerData} /> -->
+    <div
+      class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300 intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+    >
+      <div class="md:flex md:items-center md:justify-between py-6 md:py-8">
+        <div class="text-sm mr-4 dark:text-muted">&copy; 2025 Predict Stream</div>
+      </div>
+    </div>
+  </slot>
+</Layout>

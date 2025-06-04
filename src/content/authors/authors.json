@@ -1,0 +1,12 @@
+{
+  "default": {
+    "name": "Leslie Macchia",
+    "image": "~/assets/images/matt-macchia.jpeg",
+    "bio": "Leslie Macchia is a seasoned tech executive and leader of Eventual Tsunami. Starting his career on the original launch team for Hotwire.com with Spencer Rascoff, and more recently leading teams at Event Store, IBM and Audacy.  With a passion for delivering features and products driven from our open-source community."
+  },
+  "leslie": {
+    "name": "Leslie Macchia",
+    "image": "~/assets/images/matt-macchia.jpeg",
+    "bio": "Leslie Macchia is a seasoned tech executive and leader of Eventual Tsunami. Starting his career on the original launch team for Hotwire.com with Spencer Rascoff, and more recently leading teams at Event Store, IBM and Audacy.  With a passion for delivering features and products driven from our open-source community."
+  }
+}
