@@ -133,7 +133,7 @@ export const headerData = {
       href: SITE.site + '#GettingStarted',
     },
   ],
-  actions: [{ text: 'Contact Us  ', href: '/contact', icon: 'tabler:mail' }],
+  actions: [{ text: 'Contact Us  ', href: 'https://docs.google.com/forms/d/e/1FAIpQLSfXk5d0fGPTzuv9BA5cHOd7DBQDX8GmEDrhXzK6iI3-xnLWzg/viewform', target: '_blank', icon: 'tabler:mail' }],
 };
 
 export const footerData = {
