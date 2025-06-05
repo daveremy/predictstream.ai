@@ -1,5 +1,5 @@
 site:
-  name: Predict Stream
+  name: PredictStream
   site: 'https://predictstream.ai'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Predict Stream
-    template: '%s — Predict Stream'
-  description: "\U0001F680 At Predict Stream, we turn strategy into action by working side-by-side with your team to build trust, overcome resistance, and deliver sustainable change. We can help. Just reach out."
+    default: PredictStream
+    template: '%s — PredictStream'
+  description: "\U0001F680 At PredictStream, we turn strategy into action by working side-by-side with your team to build trust, overcome resistance, and deliver sustainable change. We can help. Just reach out."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Predict Stream
+    site_name: PredictStream
     images:
       - url: '~/assets/images/default.png'
         width: 1200
