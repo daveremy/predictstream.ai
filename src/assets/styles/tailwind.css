@@ -36,6 +36,7 @@ html {
 @layer utilities {
   .bg-page {
     background-color: var(--aw-color-bg-page);
+    background: linear-gradient(105deg,rgba(58, 66, 74, 1) 40%, rgba(4, 30, 64, 1) 78%);
   }
   .bg-dark {
     background-color: var(--aw-color-bg-page-dark);
