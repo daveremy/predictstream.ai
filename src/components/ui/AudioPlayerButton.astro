@@ -1,0 +1,146 @@
+---
+import { Icon } from 'astro-icon/components';
+import { twMerge } from 'tailwind-merge';
+
+const {
+  variant = 'secondary',
+  text = 'Play Podcast',
+  audioSrc,
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+const variants = {
+  primary: 'btn-primary',
+  secondary: 'btn-secondary',
+  tertiary: 'btn btn-tertiary',
+  link: 'cursor-pointer hover:text-primary',
+};
+
+// Generate a unique ID for this audio player
+const audioId = `audio-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<button 
+  type="button" 
+  class={twMerge(variants[variant] || '', 'audio-player-btn', className)} 
+  data-audio-id={audioId}
+  {...rest}
+>
+  <span class="audio-btn-text">{text}</span>
+  <Icon name="tabler:play" class="w-5 h-5 ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5 inline-block play-icon" />
+  <Icon name="tabler:pause" class="w-5 h-5 ml-1 -mr-1.5 rtl:mr-1 rtl:-ml-1.5 inline-block pause-icon hidden" />
+</button>
+
+<audio preload="metadata" class="hidden" id={audioId}>
+  <source src={audioSrc} type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<script is:inline define:vars={{ audioId }}>
+(function() {
+  function initAudioPlayer() {
+    console.log('Initializing audio player with ID:', audioId);
+    const button = document.querySelector(`[data-audio-id="${audioId}"]`);
+    if (!button) {
+      console.error('Button not found for audio ID:', audioId);
+      return;
+    }
+    console.log('Button found:', button);
+    
+    const audio = document.getElementById(audioId);
+    if (!audio) {
+      console.error('Audio element not found for ID:', audioId);
+      return;
+    }
+    console.log('Audio element found:', audio);
+    
+    const playIcon = button.querySelector('.play-icon');
+    const pauseIcon = button.querySelector('.pause-icon');
+    const textElement = button.querySelector('.audio-btn-text');
+    const originalText = textElement.textContent;
+    
+    console.log('Audio player initialized successfully');
+    
+    function togglePlayback() {
+      console.log('Button clicked! Audio element:', audio);
+      console.log('Audio paused state:', audio.paused);
+      console.log('Audio src:', audio.src);
+      
+      if (audio.paused) {
+        console.log('Attempting to play audio...');
+        textElement.textContent = 'Loading...';
+        audio.play().catch(error => {
+          console.error('Error playing audio:', error);
+          textElement.textContent = 'Play Error';
+          setTimeout(() => {
+            textElement.textContent = originalText;
+          }, 2000);
+        });
+      } else {
+        console.log('Pausing audio...');
+        audio.pause();
+      }
+    }
+    
+    function onLoadStart() {
+      textElement.textContent = 'Loading...';
+    }
+    
+    function onCanPlay() {
+      textElement.textContent = originalText;
+    }
+    
+    function onPlay() {
+      playIcon.classList.add('hidden');
+      pauseIcon.classList.remove('hidden');
+      textElement.textContent = 'Playing...';
+    }
+    
+    function onPause() {
+      playIcon.classList.remove('hidden');
+      pauseIcon.classList.add('hidden');
+      textElement.textContent = originalText;
+    }
+    
+    function onEnded() {
+      playIcon.classList.remove('hidden');
+      pauseIcon.classList.add('hidden');
+      textElement.textContent = originalText;
+    }
+    
+    function onTimeUpdate() {
+      if (!audio.paused) {
+        const minutes = Math.floor(audio.currentTime / 60);
+        const seconds = Math.floor(audio.currentTime % 60);
+        textElement.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+      }
+    }
+    
+    function onError() {
+      console.error('Audio error:', audio.error);
+      textElement.textContent = 'Audio Error';
+      setTimeout(() => {
+        textElement.textContent = originalText;
+      }, 2000);
+    }
+    
+    // Bind event handlers
+    button.addEventListener('click', togglePlayback);
+    audio.addEventListener('loadstart', onLoadStart);
+    audio.addEventListener('canplay', onCanPlay);
+    audio.addEventListener('play', onPlay);
+    audio.addEventListener('pause', onPause);
+    audio.addEventListener('ended', onEnded);
+    audio.addEventListener('timeupdate', onTimeUpdate);
+    audio.addEventListener('error', onError);
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAudioPlayer);
+  } else {
+    initAudioPlayer();
+  }
+})();
+</script>

@@ -3,6 +3,8 @@ import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
+import AudioPlayerButton from '~/components/ui/AudioPlayerButton.astro';
+import Button from '~/components/ui/Button.astro';
 
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
@@ -28,24 +30,28 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Read our Whitepaper',
-        href: '/predictstream_whitepaper.pdf',
-        target: '_blank',
-        icon: 'tabler:external-link',
-      },
-      {
-        id: 'secondary-cta',
-        variant: 'secondary',
-        text: 'Use cases',
-        href: '#use-cases',
-        icon: 'tabler:link',
-      }
-    ]}
     backgroundImage='/src/assets/images/hero.jpg'
   >
+    <Fragment slot="actions">
+      <div class="flex w-full sm:w-auto">
+        <Button 
+          variant="primary"
+          text="Read our Whitepaper"
+          href="/predictstream_whitepaper.pdf"
+          target="_blank"
+          icon="tabler:external-link"
+          class="w-full sm:mb-0"
+        />
+      </div>
+      <div class="flex w-full sm:w-auto">
+        <AudioPlayerButton 
+          variant="secondary"
+          text="Listen to Podcast"
+          audioSrc="/predictstream-podcast.mp3"
+          class="w-full sm:mb-0"
+        />
+      </div>
+    </Fragment>
     <Fragment slot="title">
       <Image src={logo} alt={SITE.name} width="600" alt={SITE.name} title={SITE.name} class="m-auto"/>
        </Fragment>
