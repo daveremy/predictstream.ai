@@ -36,10 +36,10 @@ const metadata = {
       <div class="flex w-full sm:w-auto">
         <Button 
           variant="primary"
-          text="Read our Whitepaper"
-          href="/predictstream_whitepaper.pdf"
+          text="Request Early Access"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfXk5d0fGPTzuv9BA5cHOd7DBQDX8GmEDrhXzK6iI3-xnLWzg/viewform"
           target="_blank"
-          icon="tabler:external-link"
+          icon="tabler:mail"
           class="w-full sm:mb-0"
         />
       </div>
@@ -53,13 +53,24 @@ const metadata = {
       </div>
     </Fragment>
     <Fragment slot="title">
-      <Image src={logo} alt={SITE.name} width="600" alt={SITE.name} title={SITE.name} class="m-auto"/>
-       </Fragment>
+      <div class="flex flex-col items-center">
+        <span class="bg-blue-600 text-white px-6 py-1 rounded-full text-sm mb-4 inline-block tracking-normal">
+          🚀 Coming Soon
+        </span>
+        <Image src={logo} alt={SITE.name} width="600" alt={SITE.name} title={SITE.name} class="m-auto"/>
+      </div>
+    </Fragment>
 
     <Fragment slot="subtitle">
-      An open-source platform harnessing AI to turn noisy, heterogeneous event streams into real-time, context-aware actions.
+      An open-source platform <strong>in development</strong> that will harness AI to turn noisy, heterogeneous event streams into real-time, context-aware actions.
     </Fragment>
   </Hero>
+
+  <!-- Note Widget ******************* -->
+  <Note 
+    title="Development Status" 
+    description="PredictStream is currently in active development. We're building the core platform and expect to release an alpha version in Q3 2025. Join our community of builders and researchers working together to create the future of event stream processing." 
+  />
 
   <!-- Features Widget *************** -->
   <!-- 
@@ -388,6 +399,16 @@ const metadata = {
         title: 'Is PredictStream scalable for high-velocity global data streams?',
         description:
           "Yes, but with caveats. The modular architecture supports horizontal scaling, and lightweight agents minimize latency. However, extreme-scale deployments (e.g., planetary IoT) may require custom optimizations - a focus of ongoing research.",
+      },
+      {
+        title: 'When will PredictStream be available?',
+        description:
+          'We are currently in active development and expect to release an alpha version in Q3 2025. Early access will be available to select partners and community members before the public release. <a href="https://docs.google.com/forms/d/e/1FAIpQLSfXk5d0fGPTzuv9BA5cHOd7DBQDX8GmEDrhXzK6iI3-xnLWzg/viewform" target="_blank" class="text-blue-600 hover:underline">Join our community</a> to collaborate on development and share ideas.',
+      },
+      {
+        title: 'Can I contribute to PredictStream development?',
+        description:
+          'Absolutely! PredictStream is open-source and we welcome contributions from the community. While the core platform is still in development, you can follow our progress on GitHub and join our early access program to provide feedback and help shape the platform.',
       }
     ]}
   />
@@ -409,10 +430,10 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Contact Us',
+        text: 'Request Early Access',
         href: 'https://docs.google.com/forms/d/e/1FAIpQLSfXk5d0fGPTzuv9BA5cHOd7DBQDX8GmEDrhXzK6iI3-xnLWzg/viewform', 
         target: '_blank',
-        icon: 'tabler:mail',
+        icon: 'tabler:rocket',
       },
     ]}
   >
@@ -422,11 +443,11 @@ const metadata = {
       >
         <Image src={logo} alt={SITE.name} width="400" alt={SITE.name} title={SITE.name} class="m-auto pb-5"/>
       </span>
-      Ready to Operationalize Event Streams?
+      Help Build PredictStream
     </Fragment>
 
     <Fragment slot="subtitle">
-      Join the open-source community or deploy PredictStream today.
+      Join our early access program and help shape the future of event stream processing.
     </Fragment>
   </CallToAction> 
 </Layout>
