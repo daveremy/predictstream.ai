@@ -19,6 +19,7 @@ import { Image } from 'astro:assets';
 import { SITE } from 'astrowind:config';
 import logo from '/src/assets/images/predict-stream-horizontal-logo.png';
 import dominos from '/src/assets/images/dominos.jpg';
+import heroImage from '/src/assets/images/hero.jpg';
 
 const metadata = {
   title: SITE.site.name,
@@ -30,7 +31,7 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    backgroundImage='/src/assets/images/hero.jpg'
+    backgroundImage={heroImage.src}
   >
     <Fragment slot="actions">
       <div class="flex w-full sm:w-auto">
